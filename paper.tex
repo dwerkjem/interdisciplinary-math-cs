@@ -9,19 +9,27 @@
 \usepackage{tikz} % For drawing diagrams
 \usepackage{float} % Add this line at the beginning of the document
 
-\lstset{ %
-  language=Python,             % Choose the language of the code
-  basicstyle=\ttfamily,        % Code font style
-  keywordstyle=\color{blue},   % Keywords color
-  commentstyle=\color{gray},   % Comments color
-  stringstyle=\color{red},     % Strings color
-  numbers=left,                % Line numbers on the left
-  numberstyle=\tiny\color{gray},  % Style of line numbers
-  frame=single,                % Adds a frame around the code
-  breaklines=true,             % Line break for long code lines
-  captionpos=b                 % Position of caption (below the code)
+\lstset{
+  language=Python,             % Specify the language for syntax highlighting
+  basicstyle=\ttfamily\small,  % Set basic font style
+  numbers=left,                % Add line numbers on the left
+  numberstyle=\tiny\color{gray}, % Style for line numbers
+  stepnumber=1,                % Line numbering interval
+  numbersep=10pt,              % Space between numbers and code
+  breaklines=true,             % Enable line breaking
+  breakatwhitespace=false,     % Break at whitespace if possible
+  frame=single,                % Add a frame around the code
+  captionpos=b,                % Caption below the code
+  keywordstyle=\color{blue},   % Style for keywords
+  stringstyle=\color{green},   % Style for strings
+  commentstyle=\color{gray},   % Style for comments
+  tabsize=4,                   % Tab width
+  showspaces=false,            % Don't display spaces
+  showstringspaces=false,      % Don't display spaces in strings
+  showtabs=false,              % Don't display tabs
+  breakautoindent=true,        % Indent broken lines automatically
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}, % Indicate broken line
 }
-
 \pgfplotsset{compat=1.16} % Set the version of pgfplots
 
 \title{Interdisciplinary Mathematics and Computer Science \\
@@ -45,5 +53,9 @@
 \input{chapters/chap.computer-science-foundations}
 
 \input{chapters/chap.statistics}
+
+\input{chapters/chap.calculus}
+
+\input{chapters/chap.algorithms}
 
 \end{document}

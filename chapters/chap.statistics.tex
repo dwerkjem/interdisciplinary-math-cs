@@ -24,7 +24,6 @@ David    & 80  & 75  & 82  & 78 \\
 \end{table}
 
 In this table, each row represents a student, and each column represents a subject. The numbers in the table represent the grades of the students in each subject. This table can be used to analyze the performance of the students in different subjects. What would the table look like in code?
-\newpage
 
 \begin{lstlisting}[caption={Student Grades Across Subjects in Python}, label={lst:student-grades}]
 student_grades = {
@@ -75,7 +74,6 @@ lets calculate the mean, median, and standard deviation of the student grades in
 \end{align*}
 
 Now, let's calculate the mean, median, and standard deviation of the student grades using Python. Below is the code snippet to calculate the summary statistics.
-\newpage
 
 \begin{lstlisting}[caption={Calculating Summary Statistics in Python}, label={lst:summary-statistics}]
 student_grades = {
@@ -119,3 +117,129 @@ def print_student_stats(stats):
 
 print_student_stats(get_student_stats(student_grades))
 \end{lstlisting}
+
+In Listing~\ref{lst:summary-statistics}, we define three functions to calculate the average, median, and standard deviation of a list of numbers. We then define a function \texttt{get\_student\_stats} that calculates these statistics for each student in the \texttt{student\_grades} dictionary. Finally, we print the statistics for each student using the \texttt{print\_student\_stats} function.
+
+\section{Sequential Equations}
+
+Sequential equations are a set of equations that are solved in a sequence. In many cases, the solution to one equation is used as an input to another equation. You will notice that in math, sequential equations are very verbose and can be hard to follow. In computer science, we can represent sequential equations in a more concise and readable way using code. Let's consider an example of sequential equations in math and how they can be represented in Python. Don't pay much attention to the math, focus on the difference in representation.
+
+\subsection{Example of sequential equations in math (verbose):}
+
+\[
+\begin{aligned}
+    & \text{Given the initial value:} \\
+    & x_1 = 5 \\
+    & \text{Now, use } x_1 \text{ to calculate } x_2: \\
+    & x_2 = 2x_1 + 3 = 2(5) + 3 = 13 \\
+    & \text{Next, use } x_2 \text{ to calculate } x_3: \\
+    & x_3 = x_2^2 - 4 = 13^2 - 4 = 169 - 4 = 165 \\
+    & \text{Finally, use } x_3 \text{ to calculate } x_4: \\
+    & x_4 = \sqrt{x_3 + 7} = \sqrt{165 + 7} = \sqrt{172} \approx 13.11
+\end{aligned}
+\]
+
+This example shows how each equation depends on the result of the previous one. While these steps are explicit, they can become tedious, especially when there are many intermediate steps involved.
+
+\subsection{Example of sequential equations in Python (concise):}
+
+
+\begin{lstlisting}[caption={Sequential Equations in Python}, label={lst:sequential-equations}]
+import math
+
+# Initial value
+x1 = 5
+
+# Sequential equations
+x2 = 2 * x1 + 3
+x3 = x2**2 - 4
+x4 = math.sqrt(x3 + 7)
+
+print(f"x1: {x1}, x2: {x2}, x3: {x3}, x4: {x4}")
+\end{lstlisting}
+
+In Python, the process is much more concise and easier to follow. The verbosity of the mathematical solution is abstracted into code, allowing the focus to remain on the logic rather than the intermediate steps. Additionally, the ability to reuse code for similar problems makes this approach highly efficient.
+
+This comparison illustrates how sequential equations, which can appear verbose and complex in mathematics, are simplified in programming due to abstraction and reuse of operations.
+
+\section{Probability}
+
+Probability is a measure of the likelihood that an event will occur. In computer science, probability is used to model uncertainty, make predictions, and analyze data. Let's discuss some basic concepts of probability and how they are used in computer science.
+
+\subsection{Basic Probability Concepts}
+
+Some basic probability concepts include:
+
+\begin{itemize}
+    \item Sample Space: The set of all possible outcomes of an experiment.
+    \item Event: A subset of the sample space.
+    \item Probability: The likelihood that an event will occur, denoted by $P(A)$.
+    \item Complement: The probability that an event will not occur, denoted by $P(A')$.
+    \item Union: The probability that either of two events will occur, denoted by $P(A \cup B)$.
+    \item Intersection: The probability that both of two events will occur, denoted by $P(A \cap B)$.
+    \item Conditional Probability: The probability of an event given that another event has occurred, denoted by $P(A|B)$.
+    \item Independence: Two events are independent if the occurrence of one does not affect the occurrence of the other.
+    \item Bayes' Theorem: A formula that describes the probability of an event based on prior knowledge.
+\end{itemize}
+
+These concepts are fundamental to understanding probability theory and are used in various applications in computer science, such as machine learning, data analysis, and cryptography.
+
+\subsection{Probability Distributions}
+
+Probability distributions describe how the probabilities of different outcomes are distributed. Some common probability distributions include:
+
+\begin{itemize}
+    \item Uniform Distribution: All outcomes are equally likely.
+    \item Bernoulli Distribution: A distribution with two possible outcomes (e.g., success or failure).
+    \item Binomial Distribution: A distribution of the number of successes in a fixed number of trials.
+    \item Normal Distribution: A bell-shaped distribution with a mean and standard deviation.
+    \item Poisson Distribution: A distribution of the number of events occurring in a fixed interval of time or space.
+    \item Exponential Distribution: A distribution of the time between events in a Poisson process.
+    \item \ldots and many more.
+\end{itemize}
+
+These distributions are used to model random variables and make predictions about the likelihood of different outcomes. In computer science, probability distributions are used in various algorithms, simulations, and statistical analyses.
+
+\subsection{Example of Probability Calculation}
+
+Let's consider an example of calculating the probability of rolling a six on a fair six-sided die. In this case, the sample space is $\{1, 2, 3, 4, 5, 6\}$, and the event of interest is rolling a six. The probability of rolling a six is given by:
+
+\[
+P(\text{Rolling a Six}) = \frac{\text{Number of favorable outcomes}}{\text{Total number of outcomes}} = \frac{1}{6}
+\]
+
+This example illustrates how probability can be calculated using the concept of favorable outcomes and the total number of outcomes. In computer science, this calculation can be implemented using code to simulate random events and calculate probabilities.
+
+\subsection{Probability Calculation in Python}
+
+Let's calculate the probability of rolling a six on a fair six-sided die using Python. We will simulate rolling the die multiple times and calculate the empirical probability based on the outcomes.
+
+\begin{lstlisting}[caption={Probability Calculation in Python}, label={lst:probability-calculation}]
+import random
+
+def roll_die():
+    return random.randint(1, 6)
+
+def calculate_probability(n):
+    favorable_outcomes = 0
+    total_outcomes = 0
+    for _ in range(n):
+        outcome = roll_die()
+        if outcome == 6:
+            favorable_outcomes += 1
+        total_outcomes += 1
+    return favorable_outcomes / total_outcomes
+
+n = 10000
+probability = calculate_probability(n)
+print(f"Empirical Probability of Rolling a Six: {probability:.4f}")
+\end{lstlisting}
+
+In Listing~\ref{lst:probability-calculation}, we define a function \texttt{roll\_die} to simulate rolling a fair six-sided die and a function \texttt{calculate\_probability} to calculate the empirical probability of rolling a six based on a given number of trials \texttt{n}. We then print the empirical probability of rolling a six based on 10,000 trials.
+
+This example demonstrates how probability calculations can be implemented in Python using random simulations and empirical data.
+
+\section{Conclusion of Statistics}
+
+Statistics is a powerful tool for analyzing data, making predictions, and drawing conclusions. In computer science, statistics is used to model uncertainty, optimize algorithms, and analyze complex systems. By understanding the basic concepts of statistics and how they are applied in computer science, you can gain valuable insights into the world of data science, machine learning, and artificial intelligence. In the next chapter, we will explore the field of linear algebra and its applications in computer science.
+
