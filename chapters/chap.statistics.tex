@@ -1,0 +1,121 @@
+\chapter{Statistics}\label{chap:statistics}
+
+\section{Introduction}
+
+Statistics is a branch of mathematics that deals with the collection, analysis, interpretation, and presentation of data. In \textbf{CS} statistics is used to analyze data, make predictions, and draw conclusions. In this chapter, we will discuss the basic concepts of statistics and how they are used in computer science.
+
+\section{Tabular Data}
+
+Tabular data is a common way to represent data in statistics. A table consists of rows and columns, where each row represents a data point and each column represents a variable. For example, consider the following table of student grades:
+
+\begin{table}[H]
+\centering
+\caption{Student Grades Across Subjects}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Student} & \textbf{Math} & \textbf{Science} & \textbf{English} & \textbf{History} \\
+\hline
+Alice    & 85  & 90  & 88  & 82 \\
+Bob      & 75  & 80  & 78  & 72 \\
+Charlie  & 90  & 85  & 88  & 92 \\
+David    & 80  & 75  & 82  & 78 \\
+\hline
+\end{tabular}\label{tab:student-grades}
+\end{table}
+
+In this table, each row represents a student, and each column represents a subject. The numbers in the table represent the grades of the students in each subject. This table can be used to analyze the performance of the students in different subjects. What would the table look like in code?
+\newpage
+
+\begin{lstlisting}[caption={Student Grades Across Subjects in Python}, label={lst:student-grades}]
+student_grades = {
+    'Alice': [85, 90, 88, 82],
+    'Bob': [75, 80, 78, 72],
+    'Charlie': [90, 85, 88, 92],
+    'David': [80, 75, 82, 78]
+}
+\end{lstlisting}
+
+In Listing~\ref{lst:student-grades}, we use a Python dictionary to represent the student grades. The keys of the dictionary are the student names, and the values are lists of grades in different subjects. This data structure is useful for storing tabular data in Python.
+
+\subsection{Summary Statistics}
+
+Summary statistics are used to summarize the data in a table. Some common summary statistics include:
+
+\begin{itemize}
+    \item Mean: The average value of a variable.
+    \item Median: The middle value of a variable.
+    \item Mode: The most frequent value of a variable.
+    \item Range: The difference between the maximum and minimum values of a variable.
+    \item Variance: The average squared difference between each value and the mean.
+    \item Standard Deviation: The square root of the variance.
+    \item Correlation: The relationship between two variables.
+    \item Covariance: The measure of how two variables change together.
+    \item Percentile: The value below which a given percentage of observations fall.
+    \item Quartile: The values that divide the data into four equal parts.
+    \item Interquartile Range: The range between the first and third quartiles.
+    \item Outlier: An observation that is significantly different from other observations.
+    \item Skewness: The measure of the asymmetry of the data distribution.
+    \item Kurtosis: The measure of the peakedness of the data distribution.
+    \item Confidence Interval: The range of values that is likely to contain the true value of a parameter.
+    \item \ldots and many more.
+\end{itemize}
+
+These summary statistics can be calculated using Python libraries such as NumPy, SciPy, and Pandas. Let's calculate the mean, median, and standard deviation of the student grades in Listing~\ref{lst:student-grades}.
+
+lets calculate the mean, median, and standard deviation of the student grades in Listing~\ref{lst:student-grades}. First in math, then in code.
+
+\subsection{Mathematical Calculation}
+\[
+\text{Math grades: } [85, 75, 90, 80]
+\]
+\begin{align*}
+\text{Mean} &= \frac{85 + 75 + 90 + 80}{4} = 82.5 \\
+\text{Median} &= \frac{80 + 85}{2} = 82.5 \\
+\text{Standard Deviation} &= \sqrt{\frac{(85 - 82.5)^2 + (75 - 82.5)^2 + (90 - 82.5)^2 + (80 - 82.5)^2}{4}} = 5.59
+\end{align*}
+
+Now, let's calculate the mean, median, and standard deviation of the student grades using Python. Below is the code snippet to calculate the summary statistics.
+\newpage
+
+\begin{lstlisting}[caption={Calculating Summary Statistics in Python}, label={lst:summary-statistics}]
+student_grades = {
+    'Alice': [85, 90, 88, 82],
+    'Bob': [75, 80, 78, 72],
+    'Charlie': [90, 85, 88, 92],
+    'David': [80, 75, 82, 78]
+}
+
+def get_student_average(arr):
+    return sum(arr) / len(arr)
+
+def get_student_median(arr):
+    arr.sort()
+    n = len(arr)
+    if n % 2 == 0:
+        return (arr[n // 2 - 1] + arr[n // 2]) / 2
+    else:
+        return arr[n // 2]
+    
+def get_student_standard_deviation(arr):
+    mean = get_student_average(arr)
+    return (sum([(x - mean) ** 2 for x in arr]) / len(arr)) ** 0.5
+
+def get_student_stats(student_grades):
+    stats = {}
+    for student, grades in student_grades.items():
+        stats[student] = {
+            'average': get_student_average(grades),
+            'median': get_student_median(grades),
+            'standard_deviation': get_student_standard_deviation(grades)
+        }
+    return stats
+
+def print_student_stats(stats):
+    for student, data in stats.items():
+        print(f'{student}:')
+        print(f'  Average: {data["average"]:.2f}')
+        print(f'  Median: {data["median"]:.2f}')
+        print(f'  Standard Deviation: {data["standard_deviation"]:.2f}')
+
+print_student_stats(get_student_stats(student_grades))
+\end{lstlisting}

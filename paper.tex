@@ -5,6 +5,10 @@
 \usepackage{xcolor} % For setting colors
 \usepackage{listings} % For including code snippets
 \usepackage{amssymb} % For mathematical symbols
+\usepackage{pgfplots} % For plotting graphs 
+\usepackage{tikz} % For drawing diagrams
+\usepackage{float} % Add this line at the beginning of the document
+
 \lstset{ %
   language=Python,             % Choose the language of the code
   basicstyle=\ttfamily,        % Code font style
@@ -17,6 +21,8 @@
   breaklines=true,             % Line break for long code lines
   captionpos=b                 % Position of caption (below the code)
 }
+
+\pgfplotsset{compat=1.16} % Set the version of pgfplots
 
 \title{Interdisciplinary Mathematics and Computer Science \\
 \large A Pedagogical Approach to Teaching Both Fields }
@@ -35,5 +41,9 @@
 \input{chapters/chap.introduction}
 
 \input{chapters/chap.mathematical-foundations}
+
+\input{chapters/chap.computer-science-foundations}
+
+\input{chapters/chap.statistics}
 
 \end{document}
