@@ -1,0 +1,39 @@
+\documentclass{report}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} % For mathematical equations
+\usepackage{python} % For including Python code
+\usepackage{xcolor} % For setting colors
+\usepackage{listings} % For including code snippets
+\usepackage{amssymb} % For mathematical symbols
+\lstset{ %
+  language=Python,             % Choose the language of the code
+  basicstyle=\ttfamily,        % Code font style
+  keywordstyle=\color{blue},   % Keywords color
+  commentstyle=\color{gray},   % Comments color
+  stringstyle=\color{red},     % Strings color
+  numbers=left,                % Line numbers on the left
+  numberstyle=\tiny\color{gray},  % Style of line numbers
+  frame=single,                % Adds a frame around the code
+  breaklines=true,             % Line break for long code lines
+  captionpos=b                 % Position of caption (below the code)
+}
+
+\title{Interdisciplinary Mathematics and Computer Science \\
+\large A Pedagogical Approach to Teaching Both Fields }
+\author{Derek Neilson}
+\date{\today}
+
+
+\begin{document}
+
+\tableofcontents
+
+\maketitle
+
+\input{chapters/chap.preface}
+
+\input{chapters/chap.introduction}
+
+\input{chapters/chap.mathematical-foundations}
+
+\end{document}
